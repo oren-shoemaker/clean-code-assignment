@@ -1,4 +1,6 @@
 import java.util.*;
+
+//See TicTacToeProblemStatement for the problem statement for this programming challenge.
 public class TicTacToe {
 	
 	static char[][] inputAsCharArrays;
@@ -10,7 +12,7 @@ public class TicTacToe {
 
 	public static void main(String[] args) {
 		
-		setNumberOfInputs(1);
+		setNumberOfInputs(5);
 		populateInputArray();
 		outputArray = new String[NUMBEROFINPUTS];
 		
@@ -56,6 +58,10 @@ public class TicTacToe {
 		
 	}
 	
+	/*
+	 * Each game given as an input is converted into a 3x3 array.
+	 * While not strictly necessary, this made it easier to conceptualize what was happening when we solved the problem.
+	 */
 	private static void setGameBoard(int indexOfProblem){
 		
 		gameBoard = new char[3][3];
@@ -70,6 +76,12 @@ public class TicTacToe {
 		
 	}
 	
+	/*
+	 * General algorithm:
+	 * Check each row, column, and diagonal to see if a player could win in one move.
+	 * If so, find the blank in that line that they could fill, then apply a mathematical
+	 * transformation to place that winning move into the one-line representation of the game board.
+	 */
 	private static void checkForWinningMoves(){
 		
 		checkRows();
