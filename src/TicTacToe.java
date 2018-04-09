@@ -22,7 +22,11 @@ public class TicTacToe {
 		
 		printOutputArray();
 	}
-		
+	
+	private static void setNumberOfInputs(int numInputs){
+		NUMBEROFINPUTS = numInputs;
+	}
+	
 	private static void populateInputArray(){
 		
 		Scanner fromStdIn = new Scanner(System.in);
@@ -64,10 +68,6 @@ public class TicTacToe {
 			}
 		}
 		
-	}
-	
-	private static void setNumberOfInputs(int numInputs){
-		NUMBEROFINPUTS = numInputs;
 	}
 	
 	private static void checkForWinningMoves(){
@@ -150,6 +150,16 @@ public class TicTacToe {
 		
 	}
 	
+	private static boolean couldWinThisLine(char[] line, char symbol){
+		
+		if(countSymbolInLine(line, symbol)==2 && countSymbolInLine(line, invertSymbol(symbol))==0){
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 	private static int countSymbolInLine(char[] line, char symbol){
 		
 		int count = 0;
@@ -161,16 +171,6 @@ public class TicTacToe {
 		}
 		
 		return count;
-		
-	}
-	
-	private static boolean couldWinThisLine(char[] line, char symbol){
-		
-		if(countSymbolInLine(line, symbol)==2 && countSymbolInLine(line, invertSymbol(symbol))==0){
-			return true;
-		} else {
-			return false;
-		}
 		
 	}
 	
@@ -255,11 +255,6 @@ public class TicTacToe {
 		}
 		
 	}
-	
-	private static void printCharArray(char[] a){
-		for(char c: a){
-			System.out.println(c);
-		}
-	}
+
 	
 }
